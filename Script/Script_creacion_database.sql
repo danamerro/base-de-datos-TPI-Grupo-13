@@ -50,6 +50,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HE
 BEGIN
     CREATE TABLE HERRAMIENTAS (
         IdHerramienta INT IDENTITY(1,1) NOT NULL,
+        Nombre VARCHAR(50) UNIQUE NOT NULL,
         Modelo VARCHAR(100) UNIQUE NULL,
         Clase VARCHAR(10) NOT NULL,
         IdMarca INT NOT NULL,
