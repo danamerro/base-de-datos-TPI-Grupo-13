@@ -7,6 +7,7 @@ END
 GO
 
 USE LaboratorioEnsayosElectricos;
+GO
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MARCAS]') AND type in (N'U'))
 BEGIN
