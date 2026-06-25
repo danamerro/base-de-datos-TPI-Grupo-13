@@ -7,6 +7,7 @@ END
 GO
 
 USE LaboratorioEnsayosElectricos;
+GO
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MARCAS]') AND type in (N'U'))
 BEGIN
@@ -49,6 +50,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HE
 BEGIN
     CREATE TABLE HERRAMIENTAS (
         IdHerramienta INT IDENTITY(1,1) NOT NULL,
+        Nombre VARCHAR(50) UNIQUE NOT NULL,
         Modelo VARCHAR(100) UNIQUE NULL,
         Clase VARCHAR(10) NOT NULL,
         IdMarca INT NOT NULL,
@@ -71,7 +73,7 @@ BEGIN
         Email VARCHAR(100) UNIQUE NOT NULL,
         Telefono VARCHAR(20) UNIQUE NOT NULL,
         Direccion VARCHAR(100) NOT NULL,
-        Observaciones VARCHAR(255) NOT NULL,
+        Observaciones VARCHAR(255) NULL,
 
         PRIMARY KEY (IdCliente)
     );
@@ -150,7 +152,7 @@ BEGIN
         FechaEnsayo DATE NOT NULL DEFAULT GETDATE(),
         Humedad INT NOT NULL CHECK (Humedad >= 0 AND Humedad <= 100),
         Temperatura FLOAT NOT NULL,
-        Observaciones VARCHAR(255) NOT NULL,
+        Observaciones VARCHAR(255) NULL,
         IdEmpleado INT NOT NULL,
 
         PRIMARY KEY (IdRegistro),
