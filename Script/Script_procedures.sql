@@ -1,3 +1,6 @@
+DROP PROCEDURE IF EXISTS sp_UpdateRegistro;
+GO
+
 CREATE OR ALTER PROCEDURE sp_UpdateRegistro (
     @idingreso INT,
     @idtipoensayo INT,
@@ -116,6 +119,9 @@ BEGIN
         IdEmpleado = @idempleado
     WHERE IdIngreso = @idingreso;
 END;
+GO
+
+DROP PROCEDURE IF EXISTS sp_InsertRegistro;
 GO
 
 CREATE OR ALTER PROCEDURE sp_InsertRegistro (
@@ -246,6 +252,9 @@ BEGIN
         @idempleado
     );
 END;
+GO
+
+DROP PROCEDURE IF EXISTS sp_GetIngresosPendientesEnsayo;
 GO
 
 CREATE OR ALTER PROCEDURE sp_GetIngresosPendientesEnsayo
