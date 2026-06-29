@@ -118,11 +118,12 @@ BEGIN
         IdNivel INT IDENTITY(1,1) NOT NULL,
         Nivel VARCHAR(100) UNIQUE NOT NULL,
         IdTipoEnsayo INT NULL,
-        Permiso VARCHAR(50) NOT NULL,
+        Permiso VARCHAR(100) NOT NULL,
 
         PRIMARY KEY (IdNivel),
         FOREIGN KEY (IdTipoEnsayo) REFERENCES [dbo].[TIPOS_ENSAYO](IdTipoEnsayo)
     );
+
 END
 GO
 
